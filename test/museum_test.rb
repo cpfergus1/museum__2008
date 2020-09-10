@@ -76,18 +76,35 @@ class MuseumTest <Minitest::Test
   end
 
   def test_ticket_lottery_contestants
+    dmns = Museum.new("Denver Museum of Nature and Science")
     patron_1 = Patron.new("Bob", 0)
     patron_2 = Patron.new("Sally", 5)
     patron_3 = Patron.new("Johnny", 5)
+    dmns.admit(@patron_1)
+    dmns.admit(@patron_2)
+    dmns.admit(@patron_3)
     patron_1.add_interest("Gems and Minerals")
     patron_2.add_interest("Dead Sea Scrolls")
     patron_3.add_interest("Dead Sea Scrolls")
-    @dmns.add_exhibit(@gems_and_minerals)
-    @dmns.add_exhibit(@dead_sea_scrolls)
-    @dmns.add_exhibit(@imax)
-    expected = [patron_2, patron_3], @dmns.ticket_lottery_contestants(@dead_sea_scrolls)
+    dmns.add_exhibit(@gems_and_minerals)
+    dmns.add_exhibit(@dead_sea_scrolls)
+    dmns.add_exhibit(@imax)
+    expected = [patron_2, patron_3], dmns.ticket_lottery_contestants(@dead_sea_scrolls)
   end
 
+  def test_draw_lotter_winner
+    dmns = Museum.new("Denver Museum of Nature and Science")
+    patron_1 = Patron.new("Bob", 0)
+    patron_2 = Patron.new("Sally", 5)
+    patron_3 = Patron.new("Johnny", 5)
+    dmns.admit(@patron_1)
+    dmns.admit(@patron_2)
+    dmns.admit(@patron_3)
+    patron_1.add_interest("Gems and Minerals")
+    patron_2.add_interest("Dead Sea Scrolls")
+    patron_3.add_interest("Dead Sea Scrolls")
+    dmns.add_exhibit(@dead_sea_scrolls)
+  end
 
 
 
