@@ -44,4 +44,11 @@ class Museum
       end
     end.reject(&:nil?)
   end
+
+  def draw_lotter_winner(exhibit)
+    ticket_lottery_contestants(exhibit).sample
+  end
+
+  
+
 end

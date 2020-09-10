@@ -81,9 +81,9 @@ class MuseumTest <Minitest::Test
     patron_1 = Patron.new("Bob", 0)
     patron_2 = Patron.new("Sally", 5)
     patron_3 = Patron.new("Johnny", 5)
-    dmns.admit(@patron_1)
-    dmns.admit(@patron_2)
-    dmns.admit(@patron_3)
+    dmns.admit(patron_1)
+    dmns.admit(patron_2)
+    dmns.admit(patron_3)
     patron_1.add_interest("Gems and Minerals")
     patron_2.add_interest("Dead Sea Scrolls")
     patron_3.add_interest("Dead Sea Scrolls")
@@ -98,15 +98,15 @@ class MuseumTest <Minitest::Test
     patron_1 = Patron.new("Bob", 0)
     patron_2 = Patron.new("Sally", 5)
     patron_3 = Patron.new("Johnny", 5)
-    dmns.admit(@patron_1)
-    dmns.admit(@patron_2)
-    dmns.admit(@patron_3)
+    dmns.admit(patron_1)
+    dmns.admit(patron_2)
+    dmns.admit(patron_3)
     patron_1.add_interest("Gems and Minerals")
     patron_2.add_interest("Dead Sea Scrolls")
     patron_3.add_interest("Dead Sea Scrolls")
     dmns.add_exhibit(@dead_sea_scrolls)
-    dmns.expects(:sample, @patron_1)
-    assert_equal @patron1, dmns.test_draw_lotter_winner
+    dmns.stubs(:sample).returns(patron_3)
+    assert_equal patron_3, dmns.draw_lotter_winner(@dead_sea_scrolls)
   end
 
 
