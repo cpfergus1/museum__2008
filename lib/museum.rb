@@ -27,4 +27,13 @@ class Museum
     end.reject(&:nil?)
   end
 
+  def patrons_by_exhibit_interest
+    interest = {}
+    @exhibits.each do |exhibit|
+      interest[exhibit] = @patrons.find_all do |patron|
+        patron.interests.include? exhibit.name
+      end
+    end
+    interest
+  end
 end
