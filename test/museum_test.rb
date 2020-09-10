@@ -106,9 +106,8 @@ class MuseumTest <Minitest::Test
     patron_3.add_interest("Dead Sea Scrolls")
     dmns.add_exhibit(@dead_sea_scrolls)
     dmns.stubs(:sample).returns(patron_3)
-    assert_equal patron_3, dmns.draw_lotter_winner(@dead_sea_scrolls)
+    assert_equal patron_3, dmns.draw_lottery_winner(@dead_sea_scrolls)
+
   end
-
-
 
 end

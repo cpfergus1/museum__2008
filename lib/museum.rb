@@ -45,10 +45,13 @@ class Museum
     end.reject(&:nil?)
   end
 
-  def draw_lotter_winner(exhibit)
+  def draw_lottery_winner(exhibit)
     ticket_lottery_contestants(exhibit).sample
   end
 
-  
+  def announce_lotter_winner(exhibit)
+    name = draw_lottery_winner(exhibit)
+    puts "#{name} has won the #{exhibit.name} edhibit lottery"
+  end
 
 end
