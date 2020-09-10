@@ -7,7 +7,7 @@ require './lib/exhibit'
 class MuseumTest <Minitest::Test
 
   def setup
-    @@dmns = Museum.new("Denver Museum of Nature and Science")
+    @dmns = Museum.new("Denver Museum of Nature and Science")
   end
 
   def test_museum_has_attributes
@@ -16,6 +16,7 @@ class MuseumTest <Minitest::Test
   end
 
   def test_can_add_museum_exhibits
+    skip
     gems_and_minerals = Exhibit.new({name: "Gems and Minerals", cost: 0})
     dead_sea_scrolls = Exhibit.new({name: "Dead Sea Scrolls", cost: 10})
     imax = Exhibit.new({name: "IMAX",cost: 15})
@@ -26,6 +27,7 @@ class MuseumTest <Minitest::Test
   end
 
   def test_meseum_can_recommend_exhibits
+    skip
     patron_1 = Patron.new("Bob", 20)
     patron_1.add_interest("Dead Sea Scrolls")
     patron_1.add_interest("Gems and Minerals")
